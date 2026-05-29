@@ -14,6 +14,7 @@ class DepartmentController extends Controller
         $this->departmentService=$departmentService;
 
     }
+    
     /**
      * Display a listing of the resource.
      */

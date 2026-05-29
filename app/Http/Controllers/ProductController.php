@@ -49,7 +49,7 @@ class ProductController extends Controller
 
     public function update(Request $request, string $id)
     {
-        dump($request,$id);
+    
         $product = $this->productService->update($request, $id);
         return response()->json([
             'message' => 'Successfully Updated Product',
