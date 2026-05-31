@@ -32,6 +32,9 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             AttendanceSeeder::class,
             PayrollSeeder::class,
+            SupplierSeeder::class,
+            PurchasesSeeder::class,
+            PurchaseItemSeeder::class,
 
         ]);
         $employee = Employee::create([

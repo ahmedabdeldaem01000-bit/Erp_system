@@ -58,7 +58,7 @@ Route::apiResource('leave-types', LeaveTypeController::class);
     Route::post('leave-requests/{leaveRequest}/approve', [LeaveRequestController::class, 'approve']);
     Route::post('leave-requests/{leaveRequest}/reject', [LeaveRequestController::class, 'reject']);
 Route::apiResource('leave-requests', LeaveRequestController::class);
-    // Performance Reviews
+    // Performance Reviews 
 
     Route::get('performance-reviews/high-performers', [PerformanceReviewController::class, 'highPerformers']);
     Route::get('performance-reviews/average-performers', [PerformanceReviewController::class, 'averagePerformers']);
