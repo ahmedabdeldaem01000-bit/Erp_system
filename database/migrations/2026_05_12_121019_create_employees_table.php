@@ -12,7 +12,8 @@ return new class extends Migration {
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('image')->nullable();
@@ -22,6 +23,7 @@ return new class extends Migration {
             $table->text('address');
             $table->string('phone');
             $table->foreignId('department_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('position_id')->constrained()->cascadeOnDelete();
 
             $table->timestamps();
         });

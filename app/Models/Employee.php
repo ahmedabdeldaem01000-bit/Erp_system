@@ -17,13 +17,15 @@ class Employee extends Authenticatable
     protected $guard_name = 'api';  
     
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'salary',
         'address',
         'image',
         'phone',
         'gender',
         'hire_date',
+        'position_id',
         'email',
         'password',
         'department_id',
@@ -78,4 +80,9 @@ class Employee extends Authenticatable
     {
         return $this->belongsTo(Department::class);
     }
+    public function Position(): BelongsTo
+    {
+        return $this->belongsTo(Position::class);
+    }
+    
 }

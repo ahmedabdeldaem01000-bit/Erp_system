@@ -14,9 +14,9 @@ class Purchases extends Model
     {
         return $this->belongsTo(Supplier::class);
     }
-        public function purchase()
-    {
-        return $this->hasMany(Purchases::class);
-    }
+  public function items()
+{
+    return $this->hasMany(PurchaseItem::class, 'purchase_id');
+}
 }
 

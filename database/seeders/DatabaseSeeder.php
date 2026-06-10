@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProductSeeder::class,
             EmployeeSeeder::class,
-            AttendanceSeeder::class,
+            AttendanceSeeder::class,        
             PayrollSeeder::class,
             SupplierSeeder::class,
             PurchasesSeeder::class,
@@ -38,7 +38,8 @@ class DatabaseSeeder extends Seeder
 
         ]);
         $employee = Employee::create([
-            'name' => 'ahmed',
+            'first_name' => 'ahmed',
+            'last_name' => 'ahmed',
             'salary' => 4000,
             'address' => "text",
             'image' => "s",
@@ -47,11 +48,12 @@ class DatabaseSeeder extends Seeder
             'hire_date' => '2026-01-01',
             'email' => "ahmed@email.com",
             'password' => bcrypt("password"),
-            'department_id' => 1
-
+            'department_id' => 1,
+            'position_id' => 1,
         ]);
         Employee::create([
-            'name' => 'nora',
+            'first_name' => 'nora',
+            'last_name' => 'nora',
             'salary' => 4000,
             'address' => "text",
             'image' => "s",
@@ -60,7 +62,8 @@ class DatabaseSeeder extends Seeder
             'hire_date' => '2026-01-01',
             'email' => "nora@email.com",
             'password' => bcrypt("password"),
-            'department_id' => 1
+            'department_id' => 1,
+            'position_id' => 1,
         ]);
 
 

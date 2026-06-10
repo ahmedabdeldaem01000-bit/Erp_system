@@ -25,23 +25,11 @@ class EmployeeController extends Controller
     }
 public function index()
 {
-    // بنستخدم with عشان نجيب الأدوار والصلاحيات لكل موظف في خبطة واحدة للداتابيز (Performance)
     $employees = Employee::with(['roles', 'permissions'])->get();
-
-    // لو عاوز شكل البيانات يكون منظم (Mapping)
-    $data = $employees->map(function ($employee) {
-        return [
-            'id' => $employee->id,
-            'name' => $employee->name,
-            'email' => $employee->email,
-            'roles' => $employee->getRoleNames(), // بجيب أسماء الأدوار بس
-            'permissions' => $employee->getAllPermissions()->pluck('name'), // بجيب أسماء الصلاحيات
-        ];
-    });
 
     return response()->json([
         'message' => 'Employees retrieved successfully',
-        'employees' => $data,
+        'employees' => EmployeeResource::collection($employees),
     ]);
 }
 

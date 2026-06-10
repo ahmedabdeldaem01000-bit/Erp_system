@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Department;
 use App\Models\Employee;
+use App\Models\Position;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,21 +19,25 @@ class EmployeeFactory extends Factory
      */
     public function definition(): array
     {
-     static $departments;
+        static $positions;
+        static $departments;
 
         $departments ??= Department::pluck('id')->toArray();
+        $positions ??= Position::pluck('id')->toArray();
 
         return [
-              'name'=>$this->faker->name(),
-    'salary' => $this->faker->randomNumber(6),
-    'address' => $this->faker->address(),
-    'image' => $this->faker->imageUrl(),
-    'phone' => $this->faker->phoneNumber(),
-    'gender' => $this->faker->randomElement(['male', 'female']),
-    'hire_date' => $this->faker->date(),
-    'email' => $this->faker->unique()->safeEmail(),
-    'password' => bcrypt('password'),
-  'department_id' => fake()->randomElement($departments),
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'salary' => $this->faker->randomNumber(6),
+            'address' => $this->faker->address(),
+            'image' => $this->faker->imageUrl(),
+            'phone' => $this->faker->phoneNumber(),
+            'gender' => $this->faker->randomElement(['male', 'female']),
+            'hire_date' => $this->faker->date(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'password' => bcrypt('password'),
+            'department_id' => fake()->randomElement($departments),
+            'position_id' => fake()->randomElement($positions),
         ];
     }
 }

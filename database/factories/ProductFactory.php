@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'image'=>fake()->word(),
             'price'=>fake()->numberBetween(100,200),
             'description'=>fake()->paragraph(),
-            'quantity'=>fake()->randomNumber(),
+            'quantity'=>fake()->numberBetween(10,20),
           'category_id' => Category::inRandomOrder()->first()->id,
         ];
     }
