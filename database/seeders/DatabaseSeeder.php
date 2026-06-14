@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         // $role1->givePermissionTo('edit articles');
         // $role1->givePermissionTo('delete articles');
         $this->call([
+            UserSeeder::class,
             RoleSeeder::class,
             PositionSeeder::class,
             DepartmentSeeder::class,
@@ -35,6 +36,9 @@ class DatabaseSeeder extends Seeder
             SupplierSeeder::class,
             PurchasesSeeder::class,
             PurchaseItemSeeder::class,
+            OrderSeeder::class,
+            AccountsSeeder::class,
+            OrderItemSeeder::class,
 
         ]);
         $employee = Employee::create([

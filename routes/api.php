@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\JournalEntryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PositionController;
@@ -69,6 +72,32 @@ Route::group(['middleware' => ['auth:sanctum', 'role:admin']], function () {
     Route::apiResource('performance-reviews', PerformanceReviewController::class);
     Route::apiResource('purchases', PurchaseController::class);
 
+
+
+    Route::apiResource('orders', OrderController::class);
+
+    Route::apiResource('accounts',AccountController::class);
+
+
+    Route::get(
+    'journal-entries',
+    [JournalEntryController::class,'index']
+);
+
+Route::get(
+    'journal-entries/{id}',
+    [JournalEntryController::class,'show']
+);
+
+Route::post(
+    'journal-entries',
+    [JournalEntryController::class,'store']
+);
+
+Route::post(
+    'journal-entries/{id}/reverse',
+    [JournalEntryController::class,'reverse']
+);
     
 });
 

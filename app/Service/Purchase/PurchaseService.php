@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class PurchaseService
 {
+    // 
     public function index()
     {
         return Purchases::with('items')->get();

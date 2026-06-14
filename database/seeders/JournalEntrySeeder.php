@@ -2,17 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\Purchases;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PurchasesSeeder extends Seeder
+class JournalEntrySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-            Purchases::factory()->count(10)->create();
+        //
     }
 }
